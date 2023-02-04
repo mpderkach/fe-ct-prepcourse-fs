@@ -7,7 +7,17 @@ function crearGato(nombre, edad) {
    // La propiedad "meow" será una función que retorne el string: "Meow!".
    // Retornar el objeto.
    // Tu código:
+   var crearGato = {
+      nombre: nombre,
+      edad: edad,
+   }
+   crearGato.meow = function(){
+      console.log("Meow!")
+   }
+     
 }
+
+console.log(crearGato.meow());
 
 function nuevoUsuario(nombre, email, password) {
    // Debes crear un nuevo objeto.
@@ -53,7 +63,23 @@ function tienePropiedad(objeto, propiedad) {
    // Verifica si el objeto recibido posee una propiedad con el mismo nombre que el parámetro "propiedad".
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
+   if{objeto[propiedad]
+   return true
+   }else {return false
+   };
+
 }
+return objeto; 
+
+function tienePropiedad(objeto, propiedad) {
+   // Devuelve "true" si el objeto tiene el valor del argumento "propiedad"
+   // "propiedad" es un string
+   // De lo contrario, devuelve "false"
+   // Tu código:
+   if(objeto[propiedad])
+   return true
+   return false
+  }
 
 function verificarPassword(objetoUsuario, password) {
    // Verifica si la propiedad "password" del "objetoUsuario" coincide con el parámetro "password".
