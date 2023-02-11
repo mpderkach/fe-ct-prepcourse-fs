@@ -91,6 +91,12 @@ function promedioResultadosTest(resultadosTest) {
    return promedio
 }
 
+//otra opcion:(reduce)
+
+return resultadosTest.reduce((a,b)=>{
+   return a+b / resultadosTest.length
+},0)
+
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.

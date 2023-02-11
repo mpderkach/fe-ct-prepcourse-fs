@@ -43,9 +43,9 @@ function forEach(array, cb) {
    // Debes iterar sobre el arreglo, y por cada elemento ejecutar el callback.
    // Debes pasarle el elemento como argumento al callback.
    // Tu código:
-   array.forEach(function(valor)){
+   array.forEach(function(valor){
       return cb (valor);
-   }
+   })
 }
 
 function map(array, cb) {
@@ -53,9 +53,9 @@ function map(array, cb) {
    // Tiene que guardar el resultado devuelto por el callback en cada elemento dentro de un nuevo arreglo.
    // Retorna el nuevo arreglo.
    // Tu código:
-   var newArray = array.map(function(i)){
+   var newArray = array.map(function(i){
       return cb(i);
-   }
+   })
    return newArray;
 }
 
@@ -76,9 +76,9 @@ function filter(arrayOfStrings) {
    // return newArray;
 
    //op 3
-   var newArray = arrayOfStrings.filter(function(palabra)){
+   var newArray = arrayOfStrings.filter(function(palabra){
       return palabra[0] === "a"
-   }
+   })
    return newArray;
 }
 

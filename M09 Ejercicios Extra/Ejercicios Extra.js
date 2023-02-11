@@ -21,16 +21,31 @@ function numberOfCharacters(string) {
    // Las letras deben estar en orden alfabético.
    // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
    // Tu código:
-   var objeto = {};
-   for ( var i = 0; i < string.length; i++){
-      if(objeto.hasOwnProperty(string[i])){
-         objeto[string[i]] = objeto[string[i]] + 1; // o mas corto > objeto[string[i]] += 1
+   
+   let arrayDeLetras = string.split("")
+   let objeto = {}
+   arrayDeLetras = arrayDeLetras.sort() //ordenar las letras alfabeticamente
+   arrayDeLetras.forEach (Letra => {
+      if (objeto.hasOwnProperty(Letra)){
+         objeto[Letra] += 1
       }else {
-         objeto[string[i]] = 1;
+         objeto[Letra] = 1
       }
-      }
-      return objeto;
+   });
+   return objeto;
 }
+
+   //otra opcion:
+   // var objeto = {};
+   // for ( var i = 0; i < string.length; i++){
+      // if(objeto.hasOwnProperty(string[i])){
+         // objeto[string[i]] = objeto[string[i]] + 1; // o mas corto > objeto[string[i]] += 1
+      // }else {
+         // objeto[string[i]] = 1;
+      // }
+      // }
+      // return objeto;
+
 
 function capToFront(string) {
    // Recibes un string con algunas letras en mayúscula y otras en minúscula.
@@ -43,9 +58,9 @@ function capToFront(string) {
 
    for(var i = 0; i < string.length; i ++){
       if(string[i] === string[i].toUpperCase()){  //pregunta si la palabra es Mayus -- sino .toLowerCase()
-         mayus.push(string[i])
+         mayus = mayus + string[i]      //"push" se usa solo para array
       } else{
-         minus.push(string[i]);
+         minus = minus + string[i]
       }
    }
    return mayus + minus;
@@ -57,6 +72,7 @@ function asAmirror(frase) {
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
    // Tu código:
    //op 1:
+   // var arr = frase.split(" ");
    // var pInvertida = " ";
    // for (var i = frase.length-1 ; i >= 0 ; i -- ){
       // pInvertida += frase[i]
@@ -64,9 +80,9 @@ function asAmirror(frase) {
    // return pInvertida,
 
    //op 2:
-   var invertida = frase.split(" ").map(function(elemento)){ //"split" hace que el strean se convierta en array // "map" se aplica solo a array
-      return elemento.split(" ").reverse().join("");        //"join" vuelva a convertir el array en un strean
-   }
+   var invertida = frase.split(" ").map(function(elemento){ //"split" hace que el strean se convierta en array // "map" se aplica solo a array
+      return elemento.split("").reverse().join("");        //"join" vuelva a convertir el array en un strean
+   })
    return invertida.join(" ");
 
 }
@@ -123,6 +139,19 @@ function sortArray(arrayOfStrings) {
 }
    return arrayOfStrings
 }
+// otra opcion:
+
+let aux;
+for (var i = 0; i < arrayOfStrings.length-1; i++){
+   for(var j = i+1; j < arrayOfStrings.length; j++){
+      if(arrayOfStrings[i].length > arrayOfStrings[j].length){
+         aux = arrayOfStrings[i]
+         arrayOfStrings[i] = arrayOfStrings[j];
+         arrayOfStrings[j] = aux;
+      }
+   }
+   return arrayOfStrings;
+}
 
 function buscoInterseccion(array1, array2) {
    // Recibes dos arreglos de números.
@@ -132,12 +161,14 @@ function buscoInterseccion(array1, array2) {
    // [PISTA]: los arreglos no necesariamente tienen la misma longitud.
    // Tu código:
    var coincidencias = [ ];
-   for(var i = 0; i < array1.length; i++ ){
-      for (j = 0; j < array2.length; j++)
-   if( array1[i] === array2[j]){
-      concidencias.push(array1[i])
-   }
-} 
+   for(var i = 0; i < array1.length; i++ ) {
+      for (j = 0; j < array2.length; j++) {
+         if( array1[i] === array2[j]){
+            coincidencias.push(array1[i])
+         }
+      }
+   } 
+
    return coincidencias;
 }
 

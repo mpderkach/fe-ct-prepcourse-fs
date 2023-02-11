@@ -95,7 +95,7 @@ function esDiezOCinco(num) {
    if (num === 10 || num === 5){
       return "true"
    }else {
-      retun "false"
+      return "false"
    }
 }
 
